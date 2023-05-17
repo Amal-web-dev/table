@@ -1,7 +1,16 @@
 let form = document.forms.add
+let formTwo = document.forms.addTwo
 let tBody = document.querySelector('.tBody')
 let inpAge = document.querySelector('#age')
 let inpName = document.querySelector('#name')
+let inpAgeTwo = document.querySelector('#age-2')
+let inpNameTwo = document.querySelector('#name-2')
+let bg = document.querySelector('.bg')
+let modul = document.querySelector('.modul')
+let iconClose = document.querySelector('.img-close')
+
+
+let rowNumber = 1
 
 form.onsubmit = (event) => {
     event.preventDefault()
@@ -29,6 +38,8 @@ form.onsubmit = (event) => {
         user[key] = value
     })
 
+    
+
     let tr = document.createElement('tr')
     let nameTd = document.createElement('td')
     let yearTd = document.createElement('td')
@@ -41,7 +52,7 @@ form.onsubmit = (event) => {
 
     nameTd.innerHTML = user.name
     yearTd.innerHTML = 2023 - user.age 
-    no.innerHTML = 1
+    no.innerHTML = rowNumber
     imgOne.src = './icon/2931178_change_edit_pencil_creative_design_icon.svg'
     imgSecond.src = './icon/7518699_dustbin_bin_trush_icon.svg'
     btnOne.classList.add('btn')
@@ -54,8 +65,79 @@ form.onsubmit = (event) => {
     tr.append(no, nameTd, yearTd, btnTd)
     tBody.append(tr)
 
+
+
+btnSecond.onclick = () => {
+    tr.remove()
+    user = []
+    console.log(user);
+    rowNumber--
+}
+
+btnOne.onclick = () => {
+    modul.style.display = 'block';
+    bg.style.display = 'block';
+    setTimeout(() => {
+        modul.classList.add('show');
+    }, 100);
+}
+
+bg.onclick = () => {
+    modul.style.display = 'none'
+    bg.style.display = 'none'
+    setTimeout(() => {
+        modul.classList.remove('show');
+    }, 100);
+}
+
+iconClose.onclick = () => {
+    modul.style.display = 'none'
+    bg.style.display = 'none'
+    setTimeout(() => {
+        modul.classList.remove('show');
+    }, 100);
+}
+
+formTwo.onsubmit = (eventTwo) => {
+    eventTwo.preventDefault()
+    
+    user = {}
+
+    if(inpNameTwo.value.length < 4) {
+        inpNameTwo.classList.add('error')
+        return
+    } else {
+        inpNameTwo.classList.remove('error')
+    }
+
+    if(inpAgeTwo.value < 7) {
+        inpAgeTwo.classList.add('error')
+        return
+    } else {
+        inpAgeTwo.classList.remove('error')
+    }
+
+    let fmTwo = new FormData(formTwo)
+
+    fmTwo.forEach((value, key) => {
+        user[key] = value
+    }) 
+
+    formTwo.reset()
+
+    console.log(user);
+
+    nameTd.innerHTML = user.name
+    yearTd.innerHTML = 2023 - user.age
+
+    modul.style.display = 'none'
+    bg.style.display = 'none'
+}
+
     form.reset()
 
     console.log(user);
+    rowNumber++
+
 }
 
