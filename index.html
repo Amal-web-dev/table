@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="container">
+
+    <h1>Добавление, Удаление и Изменение элемента из таблицы</h1>
+    <form name="add">
+
+    <div class="input-block">
+        <div class="name-block">
+            <p>Name</p>
+            <input type="text" name="name" id="name">
+        </div>
+        <div class="age-block">
+            <p>Age</p>
+            <input type="number" name="age" id="age">
+        </div>
+        <button class="look">Показать</button>
+    </div>
+</form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Name</th>
+                <th>burn date</th>
+                <th>action</th>
+            </tr>
+        </thead>
+        <tbody class="tBody">
+            <tr>
+                <!-- <td>1</td>
+                <td>amal</td>
+                <td>1997</td>
+                <td>
+                    <button class="btn"><img src="./icon/2931178_change_edit_pencil_creative_design_icon.svg" height="20px" alt=""></button>
+                    <button class="btn"><img src="./icon/7518699_dustbin_bin_trush_icon.svg" alt="" height="20px" class="trush"></button>
+                </td> -->
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
